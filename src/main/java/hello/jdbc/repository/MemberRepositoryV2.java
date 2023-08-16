@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.support.JdbcUtils;
 
 import javax.sql.DataSource;
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.NoSuchElementException;
 
@@ -97,13 +98,12 @@ public class MemberRepositoryV2 {
             log.error("db error", e);
             throw e;
         } finally {
-            //connection은 여기서 닫지 않는다.
+            // connection은 여기서 닫지 않는다.
             JdbcUtils.closeResultSet(rs);
             JdbcUtils.closeStatement(pstmt);
         }
 
     }
-
     public void update(String memberId, int money) throws SQLException {
         String sql = "update member set money=? where member_id=?";
 
@@ -141,7 +141,6 @@ public class MemberRepositoryV2 {
             log.error("db error", e);
             throw e;
         } finally {
-            //connection은 여기서 닫지 않는다.
             JdbcUtils.closeStatement(pstmt);
         }
 

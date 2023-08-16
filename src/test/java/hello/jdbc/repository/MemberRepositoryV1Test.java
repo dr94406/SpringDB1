@@ -5,7 +5,6 @@ import hello.jdbc.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.sql.SQLException;
 import java.util.NoSuchElementException;
@@ -44,7 +43,7 @@ class MemberRepositoryV1Test {
         assertThat(findMember).isEqualTo(member);
 
         //update: money: 10000 -> 20000
-        repository.update(member.getMemberId(), 20000);
+        repository.update( member.getMemberId(), 20000);
         Member updatedMember = repository.findById(member.getMemberId());
         assertThat(updatedMember.getMoney()).isEqualTo(20000);
 

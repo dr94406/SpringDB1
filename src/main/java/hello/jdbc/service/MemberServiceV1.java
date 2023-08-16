@@ -4,6 +4,7 @@ import hello.jdbc.domain.Member;
 import hello.jdbc.repository.MemberRepositoryV1;
 import lombok.RequiredArgsConstructor;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 @RequiredArgsConstructor
@@ -15,7 +16,7 @@ public class MemberServiceV1 {
         Member fromMember = memberRepository.findById(fromId);
         Member toMember = memberRepository.findById(toId);
 
-        memberRepository.update(fromId, fromMember.getMoney() - money);
+        memberRepository.update( fromId, fromMember.getMoney() - money);
         validation(toMember);
         memberRepository.update(toId, toMember.getMoney() + money);
 
