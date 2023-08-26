@@ -70,9 +70,10 @@ public class MemberRepositoryV1 {
             throw e;
         } finally {
             close(con, pstmt, rs);
-        }
 
+        }
     }
+
 
 
     public void update(String memberId, int money) throws SQLException {
@@ -94,10 +95,7 @@ public class MemberRepositoryV1 {
         } finally {
             close(con, pstmt, null);
         }
-
     }
-
-
     public void delete(String memberId) throws SQLException {
         String sql = "delete from member where member_id=?";
 

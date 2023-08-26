@@ -1,0 +1,27 @@
+€14:52:02.114 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+®14:52:02.115 [Test worker] DEBUG org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+´14:52:02.154 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn0: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
+€14:52:02.164 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+®14:52:02.164 [Test worker] DEBUG org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+´14:52:02.166 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn1: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
+T14:52:02.167 [Test worker] INFO hello.jdbc.service.MemberServiceV3_1Test - START TX
+¶14:52:02.168 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceTransactionManager - Creating new transaction with name [null]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+®14:52:02.169 [Test worker] DEBUG org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Á14:52:02.170 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceTransactionManager - Acquired Connection [conn2: url=jdbc:h2:tcp://localhost/~/test user=SA] for JDBC transaction
+Ã14:52:02.171 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceTransactionManager - Switching JDBC Connection [conn2: url=jdbc:h2:tcp://localhost/~/test user=SA] to manual commit
+´14:52:02.172 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn2: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
+´14:52:02.175 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn2: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
+´14:52:02.176 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn2: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
+X14:52:02.176 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - resultSize=1
+´14:52:02.176 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn2: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
+X14:52:02.177 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - resultSize=1
+‚14:52:02.177 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceTransactionManager - Initiating transaction commit
+Â14:52:02.177 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceTransactionManager - Committing JDBC transaction on Connection [conn2: url=jdbc:h2:tcp://localhost/~/test user=SA]
+Ä14:52:02.178 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceTransactionManager - Releasing JDBC Connection [conn2: url=jdbc:h2:tcp://localhost/~/test user=SA] after transaction
+R14:52:02.178 [Test worker] INFO hello.jdbc.service.MemberServiceV3_1Test - END TX
+€14:52:02.178 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+®14:52:02.178 [Test worker] DEBUG org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+´14:52:02.180 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn3: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
+€14:52:02.182 [Test worker] DEBUG org.springframework.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+®14:52:02.182 [Test worker] DEBUG org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+´14:52:02.183 [Test worker] INFO hello.jdbc.repository.MemberRepositoryV3 - get connection=conn4: url=jdbc:h2:tcp://localhost/~/test user=SA, class=class org.h2.jdbc.JdbcConnection
