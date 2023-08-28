@@ -4,10 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
-
 @Slf4j
-public class UncheckedTest {
+public class UnCheckedTest {
 
     @Test
     void unchecked_catch() {
@@ -18,15 +16,13 @@ public class UncheckedTest {
     @Test
     void unchecked_throw() {
         Service service = new Service();
-        assertThatThrownBy(() -> service.callThrow())
+        Assertions.assertThatThrownBy(() -> service.callThrow())
                 .isInstanceOf(MyUncheckedException.class);
     }
-
-    /**
-     * RuntimeException을 상속받은 예외는 언체크 예외가 된다.
-     */
     static class MyUncheckedException extends RuntimeException {
-        public MyUncheckedException(String message) {
+
+
+        public MyUncheckedException(String message ) {
             super(message);
         }
     }
@@ -46,7 +42,7 @@ public class UncheckedTest {
             try {
                 repository.call();
             } catch (MyUncheckedException e) {
-                //예외 처리 로직
+                // 예외 처리 로직
                 log.info("예외 처리, message={}", e.getMessage(), e);
             }
         }
@@ -59,7 +55,6 @@ public class UncheckedTest {
             repository.call();
         }
     }
-
     static class Repository {
         public void call() {
             throw new MyUncheckedException("ex");
