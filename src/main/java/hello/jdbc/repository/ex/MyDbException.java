@@ -1,8 +1,8 @@
 package hello.jdbc.repository.ex;
 
-public class MyDbException extends RuntimeException {
-
+public class MyDbException extends RuntimeException{
     public MyDbException() {
+        super();
     }
 
     public MyDbException(String message) {

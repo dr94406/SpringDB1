@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
  * JDBC - ConnectionParam
  */
 @Slf4j
-public class MemberRepositoryV3 {
+public class MemberRepositoryV3{
 
     private final DataSource dataSource;
 
