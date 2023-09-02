@@ -1,6 +1,6 @@
 package hello.jdbc.repository.ex;
 
-public class MyDuplicateKeyException extends MyDbException {
+public class MyDuplicateKeyException extends MyDbException{
 
     public MyDuplicateKeyException() {
     }

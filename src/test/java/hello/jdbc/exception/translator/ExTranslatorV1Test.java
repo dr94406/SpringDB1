@@ -1,6 +1,5 @@
 package hello.jdbc.exception.translator;
 
-import hello.jdbc.connection.ConnectionConst;
 import hello.jdbc.domain.Member;
 import hello.jdbc.repository.ex.MyDbException;
 import hello.jdbc.repository.ex.MyDuplicateKeyException;
@@ -23,45 +22,45 @@ import static hello.jdbc.connection.ConnectionConst.*;
 public class ExTranslatorV1Test {
 
     Repository repository;
-    Service service;
+     Service service;
 
-    @BeforeEach
-    void init() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
-        repository = new Repository(dataSource);
-        service = new Service(repository);
-    }
+     @BeforeEach
+     void init() {
+         DriverManagerDataSource dataSource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
+         repository = new Repository(dataSource);
+         service = new Service(repository);
+     }
 
-    @Test
-    void duplicateKeySave() {
-        service.create("myId");
-        service.create("myId");//같은 ID 저장 시도
-    }
+     @Test
+     void duplicateKeySave() {
+         service.create("myId");
+         service.create("myId");
+
+     }
+
 
     @Slf4j
     @RequiredArgsConstructor
     static class Service {
         private final Repository repository;
-
         public void create(String memberId) {
-            try {
-                repository.save(new Member(memberId, 0));
-                log.info("saveId={}", memberId);
-            } catch (MyDuplicateKeyException e) {
+            try{
+            repository.save(new Member(memberId, 0));
+            log.info("saveId={}", memberId);
+        }catch (MyDuplicateKeyException e) {
                 log.info("키 중복, 복구 시도");
                 String retryId = generateNewId(memberId);
                 log.info("retryId={}", retryId);
                 repository.save(new Member(retryId, 0));
-            } catch (MyDbException e) {
-                log.info("데이터 접근 계층 예외", e);
+            }catch (MyDbException e) {
+                log.info("데이터 접근 계층 예외 ", e);
                 throw e;
             }
         }
 
         private String generateNewId(String memberId) {
-            return memberId + new Random().nextInt(10000);
+                return memberId + new Random().nextInt(10000);
         }
-
     }
 
     @RequiredArgsConstructor
@@ -77,13 +76,12 @@ public class ExTranslatorV1Test {
                 con = dataSource.getConnection();
                 pstmt = con.prepareStatement(sql);
                 pstmt.setString(1, member.getMemberId());
-                pstmt.setInt(2, member.getMoney());
                 pstmt.executeUpdate();
                 return member;
             } catch (SQLException e) {
-                //h2 db
+                // h2 db
                 if (e.getErrorCode() == 23505) {
-                    throw new MyDuplicateKeyException(e);
+                    throw new MyDuplicateKeyException();
                 }
                 throw new MyDbException(e);
             } finally {
